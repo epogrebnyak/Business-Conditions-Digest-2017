@@ -28,18 +28,18 @@ plt.savefig('plot.png')
 Easy:
 1. Set vertical space between subplots to 0
 2. No ticks on x axis 
-3. Transparent lower and upper boundary of plot for plots 2-5 
+3. Transparent lower and upper boundary of plot for subplots 2-5 (1-4, 0-based) 
    (is it possible?)
 4. Legend on each subplot, control its location - upper left corner
-5. Vertical grid
-6. Horizontal grid
+5. Vertical grid on each suplot
+6. Horizontal grid on each suplot
 7. Global header for the enire plot
 
 Not that easy:
 8. df.GDP5 is by quarter, still want to put it on first subplot
 9. Suggestions to control figure size. Currently figsize=(6, 12)
    was trail and error.
-
+10. Saveing to png adds whitespace on top of graph. Possible to eliminate?
 """
 
 # not todo
