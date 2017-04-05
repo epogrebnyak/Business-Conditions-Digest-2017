@@ -27,8 +27,8 @@ plt.savefig('plot.png')
 
 Easy:
 1. Set vertical space between subplots to 0
-2. No ticks on x axis 
-3. Transparent lower and upper boundary of plot for subplots 2-5 (1-4, 0-based) 
+2. No ticks on x axis on plots 0-4 (0-based) 
+3. Transparent lower and upper boundary of plot for subplots 1-4 (0-based) 
    (is it possible?)
 4. Legend on each subplot, control its location - upper left corner
 5. Vertical grid on each suplot
