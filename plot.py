@@ -14,12 +14,29 @@ INV	COMM"""
 pairs = [x.split("\t") for x in doc.split("\n")]
 
 # 6 subplots, the axes array is 1-d
-f, axarr = plt.subplots(6, sharex=True, figsize=(6, 12))
+f, axarr = plt.subplots(6, figsize=(6, 12))
 
 for i in range(6):
     axarr[i].plot(df[pairs[i]])
-    title = "+".join(pairs[i])
+    # title = "+".join(pairs[i])
     # axarr[i].set_title(title)
+    #5&6
+    axarr[i].grid(True)
+    #4
+    axarr[i].legend(pairs[i], loc='upper left')
+    axarr[i].set_xlim('1995','2018')
+    
+    if i in range(0,4):
+        #2
+        axarr[i].xaxis.set_major_formatter(NullFormatter())
+        #3
+        axarr[i].spines['top'].set_visible(False)
+        axarr[i].spines['bottom'].set_visible(False)
+
+#7
+f.suptitle('GlobalTitle', fontsize=15)
+#1 h_pad padding (height) between subplots.
+plt.tight_layout(pad=3, h_pad=.2)
 
 plt.savefig('plot.png')
 
