@@ -86,9 +86,6 @@ def draw_6(df, pairs):
     axarr[0].set_title(plot_title)
     return f
 
-f1 = draw_6(df, pairs)
-plt.savefig('plot.png', bbox_inches='tight')
-
 def draw_12(df, labs):
     f, axarr = plt.subplots(12, sharex=True, figsize=(4, 12))
     for i, (ax, lab) in enumerate(zip(axarr, labs)):
@@ -105,9 +102,14 @@ def draw_12(df, labs):
                     top='off',      
                     labelbottom='off')            
 
+f1 = draw_6(df, pairs)
+plt.savefig('plot.png', bbox_inches='tight')
+
 labs = ['GDP5' , 'PROD5', 'IND', 'MANUF',  
         'STROI',	'AGRO' , 'OPT', 'RETAIL',
         'CARGO',	'PASS' , 'INV', 'COMM'] 
+assert [val for sublist in pairs for val in sublist] == labs
+       
 zf = df.loc['2016-01-01':,:]
 f2 = draw_12(zf, labs)
 plt.savefig('plot2.png', bbox_inches='tight')
@@ -115,6 +117,9 @@ plt.savefig('plot2.png', bbox_inches='tight')
 
 
 """
+Session 2
+---------
+
 Session 2.1 - draw_6() + draw_12() + combination
 =================================================
 
@@ -126,15 +131,15 @@ draw_6():
       
 draw_12():
     - legend is just one letter, can fix it? same label as in draw_6()
-    - less x axis labels - only year starts? (grid is ok)    
+    - less x axis labels - only year starts? (grid is ok)   
+    - y labels on tight side, not on left
     
 combination:    
     - can we combine two plots horizonatally - draw_6() on right 
     and draw 12() on left.
     
 Fancy (comment or do if any time remains):
-    - pick same color for plots in draw_12, from 
-      on my machine 
+    - pick same color for plots in draw_12, from colors at draw_6()
     - last datapoint on draw_12 
        - make it a larger dot
        - add value as text to the rigth of dot
@@ -142,7 +147,8 @@ Fancy (comment or do if any time remains):
        
 Note (not todo):
     - three labels in graph draw_12() is too much, 2 is good
-    - may need to relabel
+    - may need to rebase to 100 at different time point
+    - pass titlle to fucntions
     
 Session 2.2. - shaded vertical bars
 ===================================
@@ -178,7 +184,7 @@ Not that easy *DONE:
 8. df.GDP5 is by quarter, still want to put it on first subplot *DONE
 9. Suggestions to control figure size. Currently figsize=(6, 12)
    was trail and error. *WONTFIX
-10. Saveing to png adds whitespace on top of graph. 
+10. Saving to png adds whitespace on top of graph. 
    Possible to eliminate? *DONE
 """
 
@@ -188,8 +194,19 @@ Comments
 - Названия, размерность
 - Шейдинг рецессий
 - Лидирующие индикаторы / цикличность
+- Текущая вероятность рецессии - "барометр"
 - Показывать оси справа
 - Долгосрочные и краткокрочные - последние еще группа графиков справа
 <http://conference.scipy.org/proceedings/scipy2015/pdfs/mellissa_cross_t.pdf>
 - save df to csv or Excel 
+
+
+Long-term idea
+==============
+- 6-20 png pictures, combine into PDF
+- top cover with date and title 
+- xls dump
+- send by e-mail with link
+- post online eg githubpages+domain name
+
 """
